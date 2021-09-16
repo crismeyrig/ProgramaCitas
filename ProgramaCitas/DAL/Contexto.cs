@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProgramaCitas.Entidades;
+using ProgramaCitas.UI.Registros;
+
 
 namespace ProgramaCitas.DAL
 {
     public class Contexto: DbContext
     {
-        public DbSet<Citas> cita { get; set; }
+        public DbSet<Citas> Citas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

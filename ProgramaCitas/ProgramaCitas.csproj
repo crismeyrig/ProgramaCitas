@@ -7,12 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="salon.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="UI\Consultas\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="salon.jpg" />
   </ItemGroup>
 
 </Project>

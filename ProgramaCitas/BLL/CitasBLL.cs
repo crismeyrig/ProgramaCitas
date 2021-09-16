@@ -76,7 +76,7 @@ namespace ProgramaCitas.BLL
 
                 if (usuario != null)
                 {
-                    contexto.Citas.Remove(Cita);
+                    contexto.Citas.Remove(Citas);
                     eliminado = (contexto.SaveChanges() > 0);
                 }
 
