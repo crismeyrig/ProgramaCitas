@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramaCitas.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de citas" Height="530" Width="510" WindowStartupLocation="CenterScreen" Icon=""  ResizeMode="CanMinimize">
+        Title="Registro de citas" Height="530" Width="510" WindowStartupLocation="CenterScreen"   ResizeMode="CanMinimize">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
 
@@ -15,7 +15,7 @@
                 <TextBox x:Name="CitaIdTextBox" Text="{Binding CitaId}" Width="200" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
                 <Button x:Name="BuscarButton" Margin="80,0,0,0" Width="120" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="30" Source="" />
+                        
                         <Label Content="Buscar" FontSize="17" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
@@ -42,21 +42,21 @@
             <StackPanel Orientation="Horizontal" Height="35" Margin="0,15,0,0" HorizontalAlignment="Center">
                 <Button x:Name="NuevoButton" Click="NuevoButton_Click" Width="120">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Source=""/>
+                       
                         <Label Content="Nuevo" FontSize="17" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
                 <!--——————————————————————————————————————————————[ BOTON GUARDAR ]——————————————————————————————————————————————-->
                 <Button x:Name="GuardarButton" Click="GuardarButton_Click" Width="120" Margin="50,0,0,0" >
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="30" Source=""/>
+                        
                         <Label Content="Guardar" FontSize="17" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
                 <!--——————————————————————————————————————————————[ BOTON ELIMINAR ]——————————————————————————————————————————————-->
                 <Button x:Name="EliminarButton" Click="EliminarButton_Click" Width="120" Margin="50,0,0,0" >
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="30" Source=""/>
+                        
                         <Label Content="Eliminar" FontSize="17" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>

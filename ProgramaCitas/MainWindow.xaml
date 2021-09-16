@@ -10,7 +10,7 @@
         <StackPanel>
             <Menu Height="24" FontSize="15">
                 <MenuItem Header="Registros">
-                    <MenuItem x:Name="rUsuariosMenuItem" Click="rUsuariosMenuItem_Click" Header="Agendar Cita">
+                    <MenuItem x:Name="rCitasMenuItem" Click="rCitasMenuItem_Click" Header="Agendar Cita">
                         <MenuItem.Icon>
                             <Image Source="/Imagenes/agregarusuario.png" />
                         </MenuItem.Icon>

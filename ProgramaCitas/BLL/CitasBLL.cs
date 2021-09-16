@@ -10,9 +10,107 @@ using ProgramaCitas.DAL;
 
 namespace ProgramaCitas.BLL
 {
-
     public class CitasBLL
     {
+        public static bool Guardar(Citas citas)
+        {
+            if (!Existe(citas.CitaId))
+                return Insertar(citas);
+            else
+                return Modificar(citas);
+        }
+        private static bool Insertar(Citas citas)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                contexto.Citas.Add(citas);
+                paso = contexto.SaveChanges() > 0;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
+        public static bool Modificar(Citas citas)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                contexto.Entry(citas).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
+
+        public static bool Eliminar(int id)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var citas = contexto.Citas.Find(id);
+
+                if (citas != null)
+                {
+                    contexto.Citas.Remove(citas);
+                    paso = contexto.SaveChanges() > 0;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
+
+        public static Citas Buscar(int id)
+        {
+            Contexto contexto = new Contexto();
+            Citas citas;
+
+            try
+            {
+                citas = contexto.Citas.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return citas;
+        }
+
         public static bool Existe(int id)
         {
             Contexto contexto = new Contexto();
@@ -20,7 +118,7 @@ namespace ProgramaCitas.BLL
 
             try
             {
-                encontrado = contexto.cita.Any(e => e.CitaId == id);
+                encontrado = contexto.Citas.Any(e => e.CitaId == id);
             }
             catch (Exception)
             {
@@ -33,131 +131,6 @@ namespace ProgramaCitas.BLL
 
             return encontrado;
         }
-        //———————————————————————————————————————————————————[ GUARDAR - REGISTRO ]———————————————————————————————————————————————————
-        public static bool Guardar(Citas cita)
-        {
-            if (!Existe(cita.CitaId))
-                return Insertar(cita);
-            else
-                return Modificar(cita);
-        }
-        
-        //———————————————————————————————————————————————————[ MODIFICAR - EN LA BD ]———————————————————————————————————————————————————
-        private static bool Modificar(Citas cita)
-        {
-            Contexto contexto = new Contexto();
-            bool modificado = false;
-
-            try
-            {
-                contexto.Entry(cita).State = EntityState.Modified;
-                modificado = (contexto.SaveChanges() > 0);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return modificado;
-        }
-        //———————————————————————————————————————————————————[ ELIMINAR - REGISTRO ]———————————————————————————————————————————————————
-        public static bool Eliminar(int id)
-        {
-            Contexto contexto = new Contexto();
-            bool eliminado = false;
-
-            try
-            {
-                var usuario = contexto.Citas.Find(id);
-
-                if (usuario != null)
-                {
-                    contexto.Citas.Remove(Citas);
-                    eliminado = (contexto.SaveChanges() > 0);
-                }
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return eliminado;
-        }
-        //———————————————————————————————————————————————————[ BUSCAR - REGISTRO ]———————————————————————————————————————————————————
-        public static Citas Buscar(int id)
-        {
-            Contexto contexto = new Contexto();
-            Citas usuario = new Citas();
-
-            try
-            {
-                usuario = contexto.Citas.Find(id);
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return usuario;
-        }
-        //———————————————————————————————————————————————————[ LISTAR ]———————————————————————————————————————————————————
-        public static List<Citas> GetList(Expression<Func<Citas, bool>> cita)
-        {
-            Contexto contexto = new Contexto();
-            List<citas> Lista = new List<Citas>();
-
-            try
-            {
-                Lista = contexto.Citas.Where(cita).ToList();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return Lista;
-        }
-       
-        
-        //——————————————————————————————————————————————[ GET ]——————————————————————————————————————————————
-        public static List<Citas> GetCitas()
-        {
-            List<Citas> lista = new List<Citas>();
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                lista = contexto.Citas.ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return lista;
-        }
     }
 }
+       

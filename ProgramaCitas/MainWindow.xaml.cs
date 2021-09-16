@@ -26,8 +26,7 @@ namespace ProgramaCitas
         }
         private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            cCitas cUsuarios1 = new cCitas();
-            cCitas1.Show();
+           
 
         }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)
