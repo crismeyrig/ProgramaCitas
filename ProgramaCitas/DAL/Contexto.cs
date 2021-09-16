@@ -15,7 +15,21 @@ namespace ProgramaCitas.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = Data\citas.db");
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlite(@"Data Source=Citas.db");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Citas>().HasData(new Citas
+            {
+                CitaId = 1,
+                Nombres = "Crismeyri",
+                Apellidos = "Gutierrez Gil",
+                Fecha = new DateTime(2021, 09, 16),
+                Descripcion = " Lavado de pelo y secado normal "
+            
+            });
+
         }
     }
 }
