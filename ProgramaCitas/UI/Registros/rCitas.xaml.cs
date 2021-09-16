@@ -112,28 +112,30 @@ namespace ProgramaCitas.UI.Registros
                     FechaDatePicker.Focus();
                     return;
                 }
-              
-        }
-        //——————————————————————————————————————————————————————————————[ Eliminar ]———————————————————————————————————————————————————————————————
-        private void EliminarButton_Click(object sender, RoutedEventArgs e)
-        {
-            //—————————————————————————————————[ Evitar que se borre el Usuario Admin Id #1 ]—————————————————————————————————
-            if (CitaIdTextBox.Text == "1")
-            {
-                MessageBox.Show("No se pudo eliminar esta cita.\n\nNo puede eliminar este Usuario.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                Limpiar();
-                CitaIdTextBox.Focus();
-                CitaIdTextBox.SelectAll();
-                return;
-            }
 
-            if (CitasBLL.Eliminar(Utilidades.ToInt(CitaIdTextBox.Text)))
-            {
-                Limpiar();
-                MessageBox.Show("Registro Eliminado", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else
-                MessageBox.Show("No se pudo eliminar el registro por que no existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //——————————————————————————————————————————————————————————————[ Eliminar ]———————————————————————————————————————————————————————————————
+            private void EliminarButton_Click(object sender, RoutedEventArgs e)
+            {
+                //—————————————————————————————————[ Evitar que se borre el Usuario Admin Id #1 ]—————————————————————————————————
+                if (CitaIdTextBox.Text == "1")
+                {
+                    MessageBox.Show("No se pudo eliminar esta cita.\n\nNo puede eliminar este Usuario.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Limpiar();
+                    CitaIdTextBox.Focus();
+                    CitaIdTextBox.SelectAll();
+                    return;
+                }
+
+                if (CitasBLL.Eliminar(Utilidades.ToInt(CitaIdTextBox.Text)))
+                {
+                    Limpiar();
+                    MessageBox.Show("Registro Eliminado", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("No se pudo eliminar el registro por que no existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
     }
 }
