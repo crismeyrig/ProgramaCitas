@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using ProgramaCitas.UI.Registros;
+using ProgramaCitas.UI.Consultas;
 
 namespace ProgramaCitas
 {
@@ -26,7 +27,8 @@ namespace ProgramaCitas
         }
         private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-           
+            cCitas cCitas1 = new cCitas();
+            cCitas1.Show();
 
         }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)

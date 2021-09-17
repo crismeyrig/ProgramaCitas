@@ -131,6 +131,50 @@ namespace ProgramaCitas.BLL
 
             return encontrado;
         }
+
+        //——————————————————————————————————————————————[ GET ]——————————————————————————————————————————————
+        public static List<Citas> GetCitas()
+        {
+            List<Citas> lista = new List<Citas>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                lista = contexto.Citas.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+        //———————————————————————————————————————————————————[ LISTAR ]———————————————————————————————————————————————————
+        public static List<Citas> GetList(Expression<Func<Citas, bool>> citas)
+        {
+            Contexto contexto = new Contexto();
+            List<Citas> Lista = new List<Citas>();
+
+            try
+            {
+                Lista = contexto.Citas.Where(citas).ToList();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return Lista;
+        }
     }
 }
        

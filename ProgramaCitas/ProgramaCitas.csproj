@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="anadir.png" />
+    <None Remove="boton-buscar-en-carpeta.png" />
     <None Remove="salon.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UI\Consultas\" />
+    <None Remove="UI\Consultas\boton-buscar-en-carpeta.png" />
+    <None Remove="UI\Consultas\buscar.png" />
+    <None Remove="UI\Registros\boton-agregar.png" />
+    <None Remove="UI\Registros\boton-buscar-en-carpeta.png" />
+    <None Remove="UI\Registros\boton-guardar-archivo.png" />
+    <None Remove="UI\Registros\eliminar.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +30,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="anadir.png" />
+    <Resource Include="boton-buscar-en-carpeta.png" />
     <Resource Include="salon.jpg" />
+    <Resource Include="UI\Consultas\boton-buscar-en-carpeta.png" />
+    <Resource Include="UI\Consultas\buscar.png" />
+    <Resource Include="UI\Registros\boton-agregar.png" />
+    <Resource Include="UI\Registros\boton-buscar-en-carpeta.png" />
+    <Resource Include="UI\Registros\boton-guardar-archivo.png" />
+    <Resource Include="UI\Registros\eliminar.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>
